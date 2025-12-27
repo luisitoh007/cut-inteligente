@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Cut Inteligente: Emagrecer sem perder músculos com um plano prático de 30 dias (PDF + checklists + treinos)." />
+  <title>Cut Inteligente — Emagrecer Sem Perder Músculos</title>
+
+  <style>
+    :root{
+      --bg: #0b1220;
+      --bg2:#0f172a;
+      --text:#e5e7eb;
+      --muted:#a7b0c0;
+      --line:#1f2a44;
+      --accent:#22c55e;
+      --accent2:#16a34a;
+      --warn:#f59e0b;
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 10% 10%, rgba(34,197,94,.22), transparent 60%),
+        radial-gradient(900px 600px at 90% 20%, rgba(245,158,11,.14), transparent 55%),
+        radial-gradient(1000px 650px at 70% 90%, rgba(59,130,246,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      line-height:1.55;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .glass{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Top bar */
+    .topbar{
+      position: sticky; top:0; z-index:50;
+      background: rgba(11,18,32,.72);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(12px);
+    }
+    .topbar .inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; min-width:0;}
+    .brand-badge{
+      width:38px; height:38px; border-radius:12px;
+      background: radial-gradient(circle at 30% 30%, rgba(34,197,94,.95), rgba(34,197,94,.28));
+      border:1px solid rgba(34,197,94,.35);
+      display:grid; place-items:center;
+      flex:0 0 auto;
+    }
+    .brand-badge span{font-weight:900}
+    .brand-title{display:flex; flex-direction:column; min-width:0}
+    .brand-title strong{font-size:14px; letter-spacing:.2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+    .brand-title small{font-size:12px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+    .navlinks{display:flex; gap:16px; align-items:center; color:var(--muted); font-size:13px;}
+    .navlinks a:hover{color:#fff}
+    @media (max-width: 880px){ .navlinks{display:none} }
+
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:14px 18px;
+      border-radius: 999px;
+      font-weight:800;
+      letter-spacing:.2px;
+      border: 1px solid rgba(255,255,255,.12);
+      transition: transform .15s ease, filter .15s ease, background .15s ease;
+      cursor:pointer;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:active{transform:scale(.98)}
+    .btn-primary{
+      background: linear-gradient(180deg, rgba(34,197,94,1), rgba(22,163,74,1));
+      border-color: rgba(34,197,94,.38);
+      color: #06210f;
+      box-shadow: 0 12px 30px rgba(34,197,94,.25);
+    }
+    .btn-primary:hover{filter:brightness(1.05)}
+    .btn-ghost{
+      background: rgba(255,255,255,.06);
+      color:#fff;
+    }
+    .btn-ghost:hover{background: rgba(255,255,255,.09)}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-size:12px;
+    }
+
+    /* Hero */
+    .hero{padding: 54px 0 26px;}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 26px;
+      align-items:stretch;
+    }
+    @media (max-width: 960px){ .hero-grid{grid-template-columns:1fr;} }
+    .hero-left{padding: 28px}
+    .hero-right{padding: 22px}
+    .kicker{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px;}
+    h1{margin: 8px 0 10px; font-size: clamp(28px, 3.2vw, 46px); line-height:1.06; letter-spacing:-.6px;}
+    .sub{color: var(--muted); font-size: 16px; margin: 0 0 18px; max-width: 62ch;}
+
+    .bullets{display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin:18px 0;}
+    @media (max-width: 620px){ .bullets{grid-template-columns:1fr;} }
+    .bullet{
+      display:flex; gap:10px; align-items:flex-start;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+    .bullet .dot{
+      width:10px;height:10px;margin-top:6px;border-radius:999px;
+      background: rgba(34,197,94,.95);
+      box-shadow: 0 0 0 4px rgba(34,197,94,.15);
+      flex:0 0 auto;
+    }
+    .bullet span{color: var(--muted); font-size: 13px}
+    .hero-cta{display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:14px;}
+    .mini{color: var(--muted); font-size: 12px;}
+
+    /* Mock card */
+    .mock{height:100%; display:flex; flex-direction:column; gap:14px;}
+    .mock-top{
+      padding: 18px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .mock-title{font-weight:900; letter-spacing:-.3px}
+    .mock-sub{color:var(--muted); font-size:13px; margin-top:6px}
+    .mock-img{
+      margin-top:14px;
+      height: 220px;
+      border-radius: 16px;
+      border: 1px dashed rgba(255,255,255,.18);
+      background:
+        radial-gradient(600px 180px at 30% 20%, rgba(34,197,94,.18), transparent 60%),
+        rgba(255,255,255,.03);
+      display:grid; place-items:center;
+      color: rgba(255,255,255,.65);
+      font-size: 13px;
+      text-align:center;
+      padding: 14px;
+    }
+    .trust .row{display:flex; gap:10px; flex-wrap:wrap;}
+
+    /* Sections */
+    section{padding: 42px 0}
+    .section-head{margin-bottom:18px; display:flex; flex-direction:column; gap:8px;}
+    .section-head .label{
+      color: rgba(255,255,255,.75);
+      font-weight:800;
+      letter-spacing:.14em;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    .section-head h2{margin:0; font-size: clamp(22px, 2.4vw, 34px); letter-spacing:-.4px; line-height:1.15;}
+    .section-head p{margin:0; color: var(--muted); max-width: 80ch;}
+
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px;}
+    @media (max-width: 900px){ .grid3{grid-template-columns:1fr;} }
+    .card{
+      padding: 18px;
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+    .card h3{margin:0 0 8px; font-size:16px}
+    .card p{margin:0; color:var(--muted); font-size: 14px}
+    .tag{display:inline-flex; align-items:center; gap:8px; font-size:12px; color: rgba(255,255,255,.85); margin-bottom: 10px;}
+    .tag .ico{
+      width:26px;height:26px;border-radius:10px;
+      display:grid; place-items:center;
+      background: rgba(34,197,94,.14);
+      border:1px solid rgba(34,197,94,.22);
+    }
+
+    .massa{display:grid; grid-template-columns: 1fr 1fr; gap: 14px;}
+    @media (max-width: 900px){ .massa{grid-template-columns:1fr;} }
+    .massa .item{
+      padding: 18px;
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      display:flex; gap:14px; align-items:flex-start;
+    }
+    .letter{
+      width:44px;height:44px;border-radius:14px;
+      background: rgba(34,197,94,.16);
+      border:1px solid rgba(34,197,94,.26);
+      display:grid; place-items:center;
+      font-weight:900;
+      color: rgba(34,197,94,.95);
+      flex: 0 0 auto;
+    }
+    .massa .item span{color:var(--muted); font-size:14px}
+
+    .offer{display:grid; grid-template-columns: 1fr .9fr; gap: 16px; align-items:stretch;}
+    @media (max-width: 960px){ .offer{grid-template-columns:1fr;} }
+    .offer .left{padding: 22px}
+    .offer .right{padding: 22px}
+    .list{margin:0; padding-left:18px; color:var(--muted);}
+    .list li{margin:10px 0}
+    .price{
+      margin-top: 12px;
+      padding: 18px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .strike{color: rgba(255,255,255,.55); text-decoration: line-through; font-weight:700}
+    .now{font-size: 34px; font-weight: 950; letter-spacing:-.8px; color: rgba(34,197,94,.95)}
+    .fine{color: var(--muted); font-size: 12px; margin-top:6px}
+    .scar{
+      margin-top: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border:1px solid rgba(245,158,11,.22);
+      background: rgba(245,158,11,.10);
+      color: rgba(255,255,255,.88);
+      font-size: 13px;
+    }
+
+    details{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: 14px;
+      padding: 14px;
+    }
+    details+details{margin-top:10px}
+    summary{
+      cursor:pointer;
+      font-weight:800;
+      list-style:none;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+    summary::-webkit-details-marker{display:none}
+    .faq-a{margin-top:10px; color:var(--muted); font-size:14px}
+
+    footer{
+      padding: 26px 0 70px;
+      color: var(--muted);
+      font-size: 12px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: rgba(11,18,32,.55);
+    }
+
+    .mobile-cta{
+      position: fixed; left: 0; right: 0; bottom: 0;
+      padding: 12px 14px;
+      background: rgba(11,18,32,.86);
+      border-top: 1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(12px);
+      z-index:60;
+      display:none;
+    }
+    .mobile-cta .inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      display:flex; gap:12px; align-items:center; justify-content:space-between;
+    }
+    .mobile-cta .txt{display:flex; flex-direction:column; gap:2px; min-width: 0;}
+    .mobile-cta .txt b{font-size: 13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+    .mobile-cta .txt span{font-size: 12px; color: var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+    @media (max-width: 960px){
+      .mobile-cta{display:block}
+      footer{padding-bottom: 110px}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- CONFIG: ajuste o link do checkout aqui -->
+  <script>
+    const CHECKOUT_URL = "COLE_AQUI_O_LINK_DO_CHECKOUT";
+  </script>
+
+  <div class="topbar">
+    <div class="wrap">
+      <div class="inner">
+        <div class="brand">
+          <div class="brand-badge" aria-hidden="true"><span>CI</span></div>
+          <div class="brand-title">
+            <strong>Cut Inteligente</strong>
+            <small>Emagrecer sem perder músculos</small>
+          </div>
+        </div>
+
+        <nav class="navlinks" aria-label="Navegação">
+          <a href="#metodo">Método</a>
+          <a href="#conteudo">O que você recebe</a>
+          <a href="#oferta">Oferta</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+
+        <a class="btn btn-primary" data-cta href="#oferta">Quero começar</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-left glass">
+          <div class="kicker">
+            <span class="pill">📌 Plano prático de 30 dias</span>
+            <span class="pill">💪 Foco: secar sem “murchar”</span>
+            <span class="pill">📲 Controle por app (sem achismo)</span>
+          </div>
+
+          <h1>Em 30 dias, você aprende a reduzir gordura <u>sem perder firmeza e força</u> — com um método simples, testável e sustentável.</h1>
+          <p class="sub">Chega de dieta maluca e cardio como castigo. O Cut Inteligente organiza nutrição, treino e acompanhamento para você emagrecer preservando o que importa: <b>massa magra</b>.</p>
+
+          <div class="bullets" role="list">
+            <div class="bullet" role="listitem"><span class="dot"></span><div><b>Proteína do jeito certo</b><span>Meta diária e distribuição prática.</span></div></div>
+            <div class="bullet" role="listitem"><span class="dot"></span><div><b>Déficit controlado</b><span>Menos fome, mais consistência.</span></div></div>
+            <div class="bullet" role="listitem"><span class="dot"></span><div><b>Força 3x/semana</b><span>Progressão simples para manter músculo.</span></div></div>
+            <div class="bullet" role="listitem"><span class="dot"></span><div><b>Métricas claras</b><span>Peso médio, medidas e performance.</span></div></div>
+          </div>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" data-cta href="#oferta">Quero emagrecer sem murchar</a>
+            <a class="btn btn-ghost" href="#conteudo">Ver o que tem dentro</a>
+          </div>
+
+          <div class="mini">Compra segura • Acesso imediato • Garantia de 7 dias (conforme plataforma)</div>
+        </div>
+
+        <aside class="hero-right glass">
+          <div class="mock">
+            <div class="mock-top">
+              <div class="mock-title">O que você recebe</div>
+              <div class="mock-sub">E-book (PDF) + plano 30 dias + checklists + treinos + receitas</div>
+              <div class="mock-img">
+                <div>
+                  <b>Área para imagem do produto</b><br/>
+                  (mockup do PDF / capa / print das páginas)
+                </div>
+              </div>
+            </div>
+
+            <div class="trust">
+              <div class="row">
+                <span class="pill">⚡ Acesso imediato</span>
+                <span class="pill">🔒 Pagamento seguro</span>
+              </div>
+              <div class="row">
+                <span class="pill">💳 Cartão / Pix</span>
+                <span class="pill">🧾 Comprovante</span>
+              </div>
+              <div class="card">
+                <h3>Nota de transparência</h3>
+                <p>Este material é educativo e não substitui acompanhamento profissional. Se você tem condições clínicas, ajuste com médico/nutricionista.</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="label">POR QUE A MAIORIA MUDA E VOLTA?</div>
+        <h2>O problema não é falta de vontade. É estratégia errada.</h2>
+        <p>Muita gente faz déficit agressivo, proteína baixa e cardio demais. O resultado é previsível: fome, queda de força, sensação de “murchar” e abandono no meio do caminho.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <div class="tag"><span class="ico">🍽️</span><b>Déficit agressivo</b></div>
+          <p>Funciona por alguns dias — até a rotina cobrar o preço e a compulsão aparecer.</p>
+        </div>
+        <div class="card">
+          <div class="tag"><span class="ico">🥤</span><b>Proteína baixa</b></div>
+          <p>Menos saciedade, pior recuperação e maior risco de perder massa magra.</p>
+        </div>
+        <div class="card">
+          <div class="tag"><span class="ico">🏃</span><b>Cardio como castigo</b></div>
+          <p>Mais estresse, pior sono e queda de performance — a consistência vai embora.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="metodo">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="label">O MECANISMO</div>
+        <h2>Protocolo M.A.S.S.A.: um sistema simples para secar sem perder músculos</h2>
+        <p>Você não precisa de perfeição. Você precisa de um <b>processo repetível</b> com poucos pontos de controle.</p>
+      </div>
+
+      <div class="massa">
+        <div class="item"><div class="letter">M</div><div><b>Meta diária de proteína</b><span>Base da saciedade e da preservação de massa magra.</span></div></div>
+        <div class="item"><div class="letter">A</div><div><b>Ajuste com app (sem achismo)</b><span>Você aprende porções reais e controla o déficit com clareza.</span></div></div>
+        <div class="item"><div class="letter">S</div><div><b>Sobrecarga progressiva</b><span>Treino de força com progressão simples: músculo precisa de estímulo.</span></div></div>
+        <div class="item"><div class="letter">S</div><div><b>Sono + passos</b><span>Aceleradores do resultado sem destruir sua recuperação.</span></div></div>
+        <div class="item"><div class="letter">A</div><div><b>Acompanhamento semanal</b><span>Peso médio, medidas e performance para ajustar com precisão.</span></div></div>
+        <div class="item"><div class="letter">✓</div><div><b>Sem “loucura”</b><span>Menos extremos, mais consistência — que é o que realmente dá resultado.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="conteudo">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="label">O QUE TEM DENTRO</div>
+        <h2>Você recebe um guia completo, prático e aplicável</h2>
+        <p>Conteúdo pensado para execução — não para ficar bonito e parado na gaveta.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="card"><div class="tag"><span class="ico">📘</span><b>E-book completo (PDF)</b></div><p>Fundamentos + passo a passo + exemplos para aplicar sem travar.</p></div>
+        <div class="card"><div class="tag"><span class="ico">🗓️</span><b>Plano de 30 dias</b></div><p>Semana a semana, com foco em consistência e ajustes simples.</p></div>
+        <div class="card"><div class="tag"><span class="ico">🥗</span><b>Receitas rápidas</b></div><p>Alta proteína, baixo atrito. Marmita-friendly.</p></div>
+        <div class="card"><div class="tag"><span class="ico">🏋️</span><b>Treino de força 3x/semana</b></div><p>Progressão simples para preservar massa magra durante o cut.</p></div>
+        <div class="card"><div class="tag"><span class="ico">🚶</span><b>Cardio inteligente + passos</b></div><p>Acelere sem exagero e sem destruir sua recuperação.</p></div>
+        <div class="card"><div class="tag"><span class="ico">✅</span><b>Checklists + troubleshooting</b></div><p>O que fazer quando travar, quando a fome explodir, quando a força cair.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="oferta">
+    <div class="wrap">
+      <div class="offer">
+        <div class="left glass">
+          <div class="section-head">
+            <div class="label">OFERTA</div>
+            <h2>Comece hoje com o Cut Inteligente</h2>
+            <p>Acesso imediato ao PDF + plano de 30 dias com o Protocolo M.A.S.S.A.</p>
+          </div>
+
+          <ul class="list">
+            <li>E-book completo (PDF) + plano de 30 dias</li>
+            <li>Receitas rápidas + lista de compras + substituições</li>
+            <li>Treino de força 3x/semana + cardio inteligente</li>
+            <li>Checklists (diário e semanal) + acompanhamento por métricas</li>
+            <li>Guia de suplementos (custo-benefício) e apps recomendados</li>
+          </ul>
+
+          <div class="scar">
+            <b>Escassez real (edite):</b> use “preço de lançamento até [data]” ou “bônus até [data]”. Evite “vagas” se for e-book.
+          </div>
+        </div>
+
+        <div class="right glass">
+          <div class="price">
+            <div class="mini">De <span class="strike">R$ 79,00</span> por</div>
+            <div class="now">R$ 27,00</div>
+            <div class="fine">*Edite o preço e condições conforme seu checkout.</div>
+          </div>
+
+          <div style="margin-top:14px; display:grid; gap:10px">
+            <a class="btn btn-primary" data-cta href="#">Quero emagrecer sem murchar</a>
+            <div class="mini">Garantia de 7 dias (conforme a política da plataforma de pagamento).</div>
+            <a class="btn btn-ghost" href="#faq">Tirar dúvidas</a>
+          </div>
+
+          <div style="margin-top:14px" class="card">
+            <h3>Garantia (texto seguro)</h3>
+            <p>Se dentro de 7 dias você perceber que o conteúdo não faz sentido para você, solicite reembolso conforme as regras da plataforma onde comprou.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="label">DÚVIDAS</div>
+        <h2>Perguntas frequentes</h2>
+        <p>Respostas objetivas para você decidir com clareza.</p>
+      </div>
+
+      <details>
+        <summary>Sou iniciante. Isso serve para mim? <span>+</span></summary>
+        <div class="faq-a">Sim. O plano foi estruturado para ser executável: poucas regras, muita clareza e checklists para você não se perder.</div>
+      </details>
+
+      <details>
+        <summary>Preciso cortar carbo? <span>+</span></summary>
+        <div class="faq-a">Não. A proposta é controle e aderência. Carbo pode existir para você treinar bem e manter consistência.</div>
+      </details>
+
+      <details>
+        <summary>Preciso de academia? <span>+</span></summary>
+        <div class="faq-a">Treino de força é o ideal para preservar massa magra. Academia facilita muito, mas há alternativas em casa.</div>
+      </details>
+
+      <details>
+        <summary>Em quanto tempo aparecem resultados? <span>+</span></summary>
+        <div class="faq-a">Varia por pessoa e rotina. O plano é de 30 dias porque é um período bom para criar consistência e medir evolução (peso médio, medidas e performance).</div>
+      </details>
+
+      <details>
+        <summary>Isso substitui nutricionista/médico? <span>+</span></summary>
+        <div class="faq-a">Não. É um material educativo. Se você tem condições clínicas, ajuste com um profissional.</div>
+      </details>
+
+      <details>
+        <summary>Como recebo o produto após a compra? <span>+</span></summary>
+        <div class="faq-a">Após confirmação do pagamento, o acesso chega por e-mail/área do comprador conforme a plataforma utilizada.</div>
+      </details>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:flex-start">
+        <div><b>Cut Inteligente</b><br/><span>Conteúdo educativo • Não é aconselhamento médico/nutricional.</span></div>
+        <div><span>Dica: substitua os blocos de “imagem” por mockups do PDF e prints reais do conteúdo.</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-cta">
+    <div class="inner">
+      <div class="txt">
+        <b>Cut Inteligente — 30 dias</b>
+        <span>Secar sem murchar (PDF + plano)</span>
+      </div>
+      <a class="btn btn-primary" data-cta href="#oferta">Comprar</a>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll("[data-cta]").forEach((el)=>{
+      el.setAttribute("href", CHECKOUT_URL || "#oferta");
+      el.setAttribute("rel", "nofollow");
+    });
+  </script>
+</body>
+</html>
