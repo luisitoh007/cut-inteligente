@@ -156,6 +156,15 @@
     .mock-sub{color:var(--muted); font-size:13px; margin-top:6px}
     .mock-img{
       margin-top:14px;
+      border-radius:16px;
+      border:none;              /* REMOVE o tracejado */
+      background:transparent;   /* tira o fundo do placeholder */
+      padding:0;                /* REMOVE o padding que “encolhe” a imagem */
+      overflow:hidden;          /* garante que nada vaze fora do quadrante */
+      height: clamp(220px, 26vw, 320px); /* responsivo */
+      display:block;
+}     
+      margin-top:14px;
       height: 220px;
       border-radius: 16px;
       border: 1px dashed rgba(255,255,255,.18);
